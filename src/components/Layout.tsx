@@ -15,6 +15,9 @@ export function Layout({ children }: LayoutProps) {
       <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         
+        {/* Sidebar Toggle for Desktop */}
+        <SidebarTrigger className="fixed top-4 left-4 z-40 hidden md:flex bg-white shadow-md hover:shadow-lg transition-shadow" />
+        
         <main className="flex-1 flex flex-col">
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-40">
             <div className="h-full px-6 flex items-center">

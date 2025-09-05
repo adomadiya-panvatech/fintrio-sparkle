@@ -18,10 +18,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 230 30% 20%;
 
-    /* Primary - Professional Blue */
-    --primary: 210 100% 15%;
+    /* Primary - Fintrio Brand (#102946) */
+    --primary: 210 72% 17%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 210 100% 25%;
+    --primary-glow: 210 72% 25%;
 
     /* Secondary - Light Blue Gray */
     --secondary: 220 20% 96%;
@@ -67,14 +67,14 @@
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Sidebar */
-    --sidebar-background: 220 30% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 30% 25%;
-    --sidebar-primary: 220 85% 55%;
+    --sidebar-primary: 210 72% 17%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 20% 96%;
     --sidebar-accent-foreground: 220 30% 25%;
     --sidebar-border: 220 25% 88%;
-    --sidebar-ring: 220 85% 55%;
+    --sidebar-ring: 210 72% 17%;
   }
 
   /* Light theme only - no dark mode needed */
