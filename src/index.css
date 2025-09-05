@@ -19,9 +19,9 @@
     --popover-foreground: 230 30% 20%;
 
     /* Primary - Professional Blue */
-    --primary: 220 85% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 85% 70%;
+    --primary: 210 100% 15%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 210 100% 25%;
 
     /* Secondary - Light Blue Gray */
     --secondary: 220 20% 96%;

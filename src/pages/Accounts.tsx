@@ -82,9 +82,17 @@ const accountColumns: ColumnDef<Account>[] = [
   {
     accessorKey: "name",
     header: "Name",
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("name")}</div>
-    ),
+    cell: ({ row }) => {
+      const account = row.original;
+      return (
+        <button
+          onClick={() => window.location.href = `/account/${account.id}`}
+          className="text-primary hover:text-primary/80 hover:underline font-medium text-left"
+        >
+          {account.name}
+        </button>
+      );
+    },
   },
   {
     accessorKey: "email",

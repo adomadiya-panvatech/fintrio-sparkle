@@ -34,6 +34,8 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
   searchKey?: string;
   title?: string;
+  searchPlaceholder?: string;
+  exportFilename?: string;
 }
 
 export function DataTable<TData, TValue>({
@@ -41,6 +43,8 @@ export function DataTable<TData, TValue>({
   data,
   searchKey = "name",
   title = "Data",
+  searchPlaceholder,
+  exportFilename,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
@@ -81,7 +85,7 @@ export function DataTable<TData, TValue>({
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${title.toLowerCase().replace(/\s+/g, "_")}_export.csv`;
+    a.download = `${exportFilename || title.toLowerCase().replace(/\s+/g, "_")}_export.csv`;
     a.click();
     window.URL.revokeObjectURL(url);
   };
@@ -93,7 +97,7 @@ export function DataTable<TData, TValue>({
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder={`Search ${title.toLowerCase()}...`}
+              placeholder={searchPlaceholder || `Search ${title.toLowerCase()}...`}
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
               className="pl-10 w-64"

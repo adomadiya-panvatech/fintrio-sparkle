@@ -8,6 +8,7 @@ interface Transaction {
   id: string;
   date: string;
   investor: string;
+  investorId: string;
   offer: string;
   type: "Investment" | "Redemption" | "Distribution" | "Transfer";
   amount: number;
@@ -21,6 +22,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-001",
     date: "2024-01-15",
     investor: "John Smith",
+    investorId: "ACC-001",
     offer: "Tech Growth Fund Series A",
     type: "Investment",
     amount: 50000,
@@ -32,6 +34,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-002",
     date: "2024-01-14",
     investor: "Sarah Johnson",
+    investorId: "ACC-002",
     offer: "Real Estate Opportunity Fund",
     type: "Redemption",
     amount: 25000,
@@ -43,6 +46,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-003",
     date: "2024-01-13",
     investor: "Michael Brown",
+    investorId: "ACC-003",
     offer: "Green Energy Infrastructure",
     type: "Distribution",
     amount: 15000,
@@ -54,6 +58,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-004",
     date: "2024-01-12",
     investor: "Emily Davis",
+    investorId: "ACC-004",
     offer: "Healthcare Innovation Fund",
     type: "Investment",
     amount: 75000,
@@ -65,6 +70,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-005",
     date: "2024-01-11",
     investor: "David Wilson",
+    investorId: "ACC-005",
     offer: "Emerging Markets Bond Fund",
     type: "Transfer",
     amount: 30000,
@@ -76,6 +82,7 @@ const mockTransactions: Transaction[] = [
     id: "TXN-006",
     date: "2024-01-10",
     investor: "Tech Innovations LLC",
+    investorId: "ACC-002",
     offer: "Tech Growth Fund Series A",
     type: "Investment",
     amount: 100000,
@@ -101,9 +108,17 @@ const transactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "investor",
     header: "Investor",
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("investor")}</div>
-    ),
+    cell: ({ row }) => {
+      const transaction = row.original;
+      return (
+        <button
+          onClick={() => window.location.href = `/account/${transaction.investorId}`}
+          className="text-primary hover:text-primary/80 hover:underline font-medium text-left"
+        >
+          {transaction.investor}
+        </button>
+      );
+    },
   },
   {
     accessorKey: "offer",

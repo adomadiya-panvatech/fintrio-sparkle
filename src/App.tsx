@@ -12,6 +12,7 @@ import Accounts from "./pages/Accounts";
 import Transactions from "./pages/Transactions";
 import Distributions from "./pages/Distributions";
 import Redemptions from "./pages/Redemptions";
+import AccountDetails from "./pages/AccountDetails";
 
 // Reports
 import AuditReport from "./pages/reports/AuditReport";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/distributions" element={<Distributions />} />
             <Route path="/redemptions" element={<Redemptions />} />
+            <Route path="/account/:id" element={<AccountDetails />} />
             
             {/* Reports */}
             <Route path="/reports/audit" element={<AuditReport />} />
